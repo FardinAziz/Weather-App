@@ -144,4 +144,11 @@ body {
     .col {
         justify-content: center;
     }
+
+    html,
+    body {
+        height: 100%;
+        overflow-x: hidden;
+    }
+
 }
