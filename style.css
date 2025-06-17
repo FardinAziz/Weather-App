@@ -111,8 +111,14 @@ body {
 }
 
 @media (max-width: 600px) {
+    body {
+        height: 100%;
+        overflow-x: hidden;
+    }
+
     .card {
-        margin: 40px 10px 0;
+        width: calc(100% - 20px);
+        margin: 20px auto 0;
         padding: 15px;
     }
 
@@ -145,9 +151,5 @@ body {
         justify-content: center;
     }
 
-    body {
-        height: 100%;
-        overflow-x: hidden;
-    }
 
 }
