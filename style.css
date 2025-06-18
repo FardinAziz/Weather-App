@@ -90,7 +90,7 @@
      height: auto;
      opacity: 0.95;
      transition: transform 0.3s ease;
-     margin-left: 110px;
+     margin-left: 130px;
      margin-top: 60px;
  }
 
@@ -186,10 +186,9 @@
          max-width: 90vw;
          height: auto;
          opacity: 0.95;
-         margin-left: 70px;
+         margin-left: 20px;
          margin-top: 40px;
          display: block;
-         margin-right: 20px;
 
      }
 
