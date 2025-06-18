@@ -198,6 +198,14 @@
          z-index: 10;
      }
 
+     error-msg {
+         display: none;
+         color: #484848;
+         font-size: 156px;
+         text-align: center;
+         margin-top: 7px;
+     }
+
 
 
 
