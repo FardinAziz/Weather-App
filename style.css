@@ -186,6 +186,11 @@
          max-width: 90vw;
          height: auto;
          opacity: 0.95;
+         margin-left: 0;
+         margin-top: 40px;
+         display: block;
+         margin-right: auto;
+         margin-left: auto;
 
      }
 
