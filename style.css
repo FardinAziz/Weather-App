@@ -160,7 +160,7 @@
  .error-msg {
      display: none;
      color: #484848;
-     font-size: 156px;
+     font-size: 15px;
      text-align: center;
      margin-top: 7px;
  }
@@ -198,15 +198,13 @@
          z-index: 10;
      }
 
-     error-msg {
-         display: none;
-         color: #484848;
-         font-size: 156px;
-         text-align: center;
-         margin-top: 7px;
+
+     .error-msg {
+         font-size: 14px;
+         margin-top: 8px;
+         transition: all 0.3s ease;
      }
-
-
+ }
 
 
  }
