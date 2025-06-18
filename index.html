@@ -40,6 +40,9 @@
             <button id="card-button"><img src="images/search.png" alt="Search" /></button>
         </div>
 
+        <!-- Error message inside the card -->
+        <p id="card-error" class="error-msg" style="display: none;"></p>
+
         <div class="weather">
             <img src="images/rain.png" class="weather-icon" />
             <h1 class="temp">22°c</h1>
@@ -73,6 +76,7 @@
 
         const cardInput = document.getElementById("card-input");
         const cardButton = document.getElementById("card-button");
+        const cardError = document.getElementById("card-error");
 
         const weatherIcon = document.querySelector(".weather-icon");
 
@@ -101,13 +105,23 @@
                     document.querySelector(".landing").style.display = "none";
                     document.querySelector(".card").style.display = "block";
                     landingError.style.display = "none";
+                    cardError.style.display = "none";
                 })
                 .catch(() => {
                     if (isFromLanding) {
-                        landingError.innerText = "Invalid city name. Please try again.";
-                        landingError.style.display = "block";
+                        if (city !== "") {
+                            landingError.innerText = "Invalid city name. Please try again.";
+                            landingError.style.display = "block";
+                        } else {
+                            landingError.style.display = "none";
+                        }
                     } else {
-                        alert("Invalid city name.");
+                        if (city !== "") {
+                            cardError.innerText = "Invalid city name. Please try again.";
+                            cardError.style.display = "block";
+                        } else {
+                            cardError.style.display = "none";
+                        }
                     }
                 });
         }
@@ -115,8 +129,7 @@
         landingButton.addEventListener("click", () => {
             const city = landingInput.value.trim();
             if (city === "") {
-                landingError.innerText = "Please enter a city";
-                landingError.style.display = "block";
+                landingError.style.display = "none";
             } else {
                 checkWeather(city, true);
             }
@@ -126,8 +139,7 @@
             if (e.key === "Enter") {
                 const city = landingInput.value.trim();
                 if (city === "") {
-                    landingError.innerText = "Please enter a city";
-                    landingError.style.display = "block";
+                    landingError.style.display = "none";
                 } else {
                     checkWeather(city, true);
                 }
@@ -135,13 +147,32 @@
         });
 
         cardButton.addEventListener("click", () => {
-            checkWeather(cardInput.value.trim(), false);
+            const city = cardInput.value.trim();
+            if (city === "") {
+                cardError.style.display = "none";
+            } else {
+                checkWeather(city, false);
+            }
         });
 
         cardInput.addEventListener("keypress", (e) => {
             if (e.key === "Enter") {
-                checkWeather(cardInput.value.trim(), false);
+                const city = cardInput.value.trim();
+                if (city === "") {
+                    cardError.style.display = "none";
+                } else {
+                    checkWeather(city, false);
+                }
             }
+        });
+
+        // Clear error on input
+        landingInput.addEventListener("input", () => {
+            landingError.style.display = "none";
+        });
+
+        cardInput.addEventListener("input", () => {
+            cardError.style.display = "none";
         });
     </script>
 </body>
